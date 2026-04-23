@@ -11,6 +11,14 @@ const DEFAULT_CAPTION_CAMERA = {
   scale: 0.6,
 };
 const MOBILE_BREAKPOINT = 640;
+const MOBILE_CAPTION_BOUNDS = {
+  x: { min: -0.3, max: 0.95 },
+  y: { min: -0.52, max: 0.58 },
+  depth: { min: 2.05, max: 4.15 },
+  scaleMultiplier: 1.42,
+  minScale: 0.72,
+  maxScale: 1.18,
+};
 const WHEEL_THRESHOLD = 70;
 const SWIPE_THRESHOLD = 42;
 const TRANSITION_SLOWDOWN = 2.3;
@@ -500,7 +508,7 @@ function updateSceneCaption(time) {
   const presented = getPresentedView(state);
   const cameraPlacement = getEffectiveCaptionCamera(state);
   const scale = cameraPlacement
-    ? clamp((cameraPlacement.scale ?? 0.56) * (state?.captionScale ?? 1), 0.46, 0.96)
+    ? clamp((cameraPlacement.scale ?? 0.56) * (state?.captionScale ?? 1), 0.46, 1.18)
     : clamp(getDistance(presented) * 0.3 * (state?.captionScale ?? 1), 0.24, 0.68);
 
   if (opacity <= 0.01) {
@@ -1097,11 +1105,31 @@ function getEffectivePresentation(state) {
 }
 
 function getEffectiveCaptionCamera(state) {
-  return {
+  const placement = {
     ...DEFAULT_CAPTION_CAMERA,
     ...(isMobileViewport()
       ? (state?.mobileCaptionCamera ?? state?.captionCamera)
       : state?.captionCamera ?? {}),
+  };
+
+  if (!isMobileViewport()) {
+    return placement;
+  }
+
+  return {
+    ...placement,
+    x: clamp(placement.x ?? DEFAULT_CAPTION_CAMERA.x, MOBILE_CAPTION_BOUNDS.x.min, MOBILE_CAPTION_BOUNDS.x.max),
+    y: clamp(placement.y ?? DEFAULT_CAPTION_CAMERA.y, MOBILE_CAPTION_BOUNDS.y.min, MOBILE_CAPTION_BOUNDS.y.max),
+    depth: clamp(
+      placement.depth ?? DEFAULT_CAPTION_CAMERA.depth,
+      MOBILE_CAPTION_BOUNDS.depth.min,
+      MOBILE_CAPTION_BOUNDS.depth.max
+    ),
+    scale: clamp(
+      (placement.scale ?? DEFAULT_CAPTION_CAMERA.scale) * MOBILE_CAPTION_BOUNDS.scaleMultiplier,
+      MOBILE_CAPTION_BOUNDS.minScale,
+      MOBILE_CAPTION_BOUNDS.maxScale
+    ),
   };
 }
 

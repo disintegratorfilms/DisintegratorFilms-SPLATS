@@ -5,6 +5,12 @@ const DEFAULT_PRESENTATION = {
   dolly: 0,
   fovTrim: 0,
 };
+const MOBILE_CAPTION_ANCHOR_BOUNDS = {
+  right: { min: -0.34, max: 0.34 },
+  up: { min: -0.28, max: 0.36 },
+  forward: { min: -0.04, max: 0.16 },
+  scaleMultiplier: 1.5,
+};
 const WHEEL_THRESHOLD = 70;
 const SWIPE_THRESHOLD = 42;
 const TRANSITION_SLOWDOWN = 2.3;
@@ -585,10 +591,11 @@ function updateSceneCaption(time) {
   const state = states[captionIndex];
   const anchor = getCaptionAnchor(state);
   const presented = getPresentedView(state);
+  const mobileMultiplier = isMobileViewport() ? MOBILE_CAPTION_ANCHOR_BOUNDS.scaleMultiplier : 1;
   const scale = clamp(
-    getDistance(presented) * 0.23 * (state?.captionScale ?? 1),
-    0.14,
-    0.4
+    getDistance(presented) * 0.23 * (state?.captionScale ?? 1) * mobileMultiplier,
+    isMobileViewport() ? 0.24 : 0.14,
+    isMobileViewport() ? 0.62 : 0.4
   );
 
   if (opacity <= 0.01) {
@@ -873,7 +880,7 @@ function getCaptionAnchor(state) {
   const forward = getForward(presentedView);
   const right = safeRight(forward);
   const up = normalize(cross(right, forward));
-  const anchor = state?.captionAnchor ?? {};
+  const anchor = getEffectiveCaptionAnchor(state);
 
   return add(
     add(
@@ -882,6 +889,23 @@ function getCaptionAnchor(state) {
     ),
     scale(forward, anchor.forward ?? 0)
   );
+}
+
+function getEffectiveCaptionAnchor(state) {
+  const anchor = state?.captionAnchor ?? {};
+  if (!isMobileViewport()) {
+    return anchor;
+  }
+
+  return {
+    right: clamp(anchor.right ?? 0, MOBILE_CAPTION_ANCHOR_BOUNDS.right.min, MOBILE_CAPTION_ANCHOR_BOUNDS.right.max),
+    up: clamp(anchor.up ?? 0.12, MOBILE_CAPTION_ANCHOR_BOUNDS.up.min, MOBILE_CAPTION_ANCHOR_BOUNDS.up.max),
+    forward: clamp(
+      anchor.forward ?? 0,
+      MOBILE_CAPTION_ANCHOR_BOUNDS.forward.min,
+      MOBILE_CAPTION_ANCHOR_BOUNDS.forward.max
+    ),
+  };
 }
 
 function forwardFromAngles(angles) {
