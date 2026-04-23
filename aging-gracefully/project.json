@@ -1,0 +1,270 @@
+{
+  "version": 1,
+  "slug": "bike1",
+  "sceneTitle": "Aging Gracefully",
+  "viewer": {
+    "html": "./assets/bike1.html",
+    "content": "./bike1.sog",
+    "rev": "1776908762"
+  },
+  "site": {
+    "eyebrow": "Chris Bohn / Disintegrator Films",
+    "title": "Aging Gracefully",
+    "person": "Photography, 3D design, animation, Gaussian splats, 3D printing, Unreal Engine, After Effects, and Blender.",
+    "body": "Chris Bohn builds atmospheric visual worlds through Disintegrator Films, combining cinematic image-making with real-time spatial storytelling.",
+    "links": [
+      {
+        "label": "Portfolio",
+        "href": "https://www.disintegratorfilms.com/"
+      },
+      {
+        "label": "Experimental",
+        "href": "https://www.disintegratorfilms.com/experimental"
+      },
+      {
+        "label": "Bio",
+        "href": "https://www.disintegratorfilms.com/bio"
+      }
+    ]
+  },
+  "theme": {
+    "stylePreset": "ember",
+    "displayFont": "Oswald, sans-serif",
+    "bodyFont": "DM Sans, sans-serif",
+    "detailFont": "\"Space Mono\", monospace",
+    "accent": "#d4824d",
+    "accentSoft": "#d8b97d",
+    "panelBackground": "rgba(15, 11, 10, 0.9)"
+  },
+  "calloutStyle": {
+    "fontFamily": "DM Sans, sans-serif",
+    "titleColor": "rgba(255, 230, 205, 0.78)",
+    "textColor": "rgba(255, 237, 221, 0.99)",
+    "backingColor": "rgba(15, 11, 10, 0.72)"
+  },
+  "effects": {
+    "sceneDustDensity": 2.19,
+    "sceneHazeDensity": 0.7,
+    "captionDustDensity": 0.87,
+    "captionDustSize": 1,
+    "captionHazeDensity": 0.93,
+    "lensSmudge": 0.18,
+    "grain": 0.11,
+    "overlayHaze": 1.89
+  },
+  "audio": {
+    "enabled": true,
+    "src": "./assets/i-don-t-want-to-set-the-world-on-fire.mp3",
+    "volume": 0.34
+  },
+  "states": [
+    {
+      "id": "state-1776909096274",
+      "label": "Callout 01",
+      "eyebrow": "Beat 1",
+      "title": "Callout 1",
+      "copy": "Write the in-scene callout text here.",
+      "infoTitle": "Panel 1",
+      "infoBody": "Write the lower-left support copy here.",
+      "showCallout": false,
+      "showInfoPanel": false,
+      "transition": {
+        "easing": "easeInOutCubic",
+        "duration": 1.2
+      },
+      "presentation": {
+        "aimX": 0,
+        "aimY": 0,
+        "dolly": 0,
+        "fovTrim": 0
+      },
+      "captionCamera": {
+        "x": 1.2,
+        "y": 0.2,
+        "depth": 3,
+        "scale": 0.6
+      },
+      "view": {
+        "position": [
+          -1.523247,
+          0.221238,
+          -3.01006
+        ],
+        "target": [
+          -0.146998,
+          1.052005,
+          0.448725
+        ],
+        "angles": [
+          12.580685,
+          -158.302407,
+          0
+        ],
+        "distance": 3.814109,
+        "fov": 75,
+        "rotation": [
+          -0.020622,
+          0.976214,
+          -0.107609,
+          -0.187085
+        ]
+      }
+    },
+    {
+      "id": "state-1776909135049",
+      "label": "Callout 02",
+      "eyebrow": "Beat 2",
+      "title": "Callout 2",
+      "copy": "Write the in-scene callout text here.",
+      "infoTitle": "Panel 2",
+      "infoBody": "Write the lower-left support copy here.",
+      "showCallout": false,
+      "showInfoPanel": false,
+      "transition": {
+        "easing": "easeInOutCubic",
+        "duration": 1.2
+      },
+      "presentation": {
+        "aimX": 0,
+        "aimY": 0,
+        "dolly": 0,
+        "fovTrim": 0
+      },
+      "captionCamera": {
+        "x": 1.2,
+        "y": 0.2,
+        "depth": 3,
+        "scale": 0.6
+      },
+      "view": {
+        "position": [
+          0.14217,
+          7.247364,
+          1.208274
+        ],
+        "target": [
+          0.265682,
+          1.107734,
+          1.060042
+        ],
+        "angles": [
+          -88.2,
+          -39.802407,
+          0
+        ],
+        "distance": 6.142661,
+        "fov": 75,
+        "rotation": [
+          -0.654354,
+          -0.24445,
+          -0.236888,
+          0.67524
+        ]
+      }
+    },
+    {
+      "id": "state-1776909171450",
+      "label": "Callout 03",
+      "eyebrow": "Beat 3",
+      "title": "Callout 3",
+      "copy": "Write the in-scene callout text here.",
+      "infoTitle": "Panel 3",
+      "infoBody": "Write the lower-left support copy here.",
+      "showCallout": false,
+      "showInfoPanel": false,
+      "transition": {
+        "easing": "easeInOutCubic",
+        "duration": 1.2
+      },
+      "presentation": {
+        "aimX": 0,
+        "aimY": 0,
+        "dolly": 0,
+        "fovTrim": 0
+      },
+      "captionCamera": {
+        "x": 1.2,
+        "y": 0.2,
+        "depth": 3,
+        "scale": 0.6
+      },
+      "view": {
+        "position": [
+          2.296521,
+          0.296009,
+          -0.707908
+        ],
+        "target": [
+          -0.05538,
+          1.62984,
+          0.44161
+        ],
+        "angles": [
+          27,
+          -243.952407,
+          0
+        ],
+        "distance": 2.938016,
+        "fov": 75,
+        "rotation": [
+          0.123625,
+          0.82483,
+          -0.198024,
+          0.514935
+        ]
+      }
+    },
+    {
+      "id": "state-1776909202480",
+      "label": "Callout 04",
+      "eyebrow": "Beat 4",
+      "title": "Callout 4",
+      "copy": "Write the in-scene callout text here.",
+      "infoTitle": "Panel 4",
+      "infoBody": "Write the lower-left support copy here.",
+      "showCallout": false,
+      "showInfoPanel": false,
+      "transition": {
+        "easing": "easeInOutCubic",
+        "duration": 1.2
+      },
+      "presentation": {
+        "aimX": 0,
+        "aimY": 0,
+        "dolly": 0,
+        "fovTrim": 0
+      },
+      "captionCamera": {
+        "x": 1.2,
+        "y": 0.2,
+        "depth": 3,
+        "scale": 0.6
+      },
+      "view": {
+        "position": [
+          1.440587,
+          2.782793,
+          2.809455
+        ],
+        "target": [
+          0.173131,
+          1.64996,
+          0.316299
+        ],
+        "angles": [
+          -22.05,
+          26.947593,
+          0
+        ],
+        "distance": 3.017546,
+        "fov": 75,
+        "rotation": [
+          -0.185974,
+          0.2287,
+          0.044558,
+          0.954528
+        ]
+      }
+    }
+  ]
+}
