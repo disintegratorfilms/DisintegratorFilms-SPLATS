@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SplatSite Preview</title>
+    <meta
+      name="description"
+      content="Scroll-driven Gaussian splat site preview with authored callouts, atmosphere, and sound."
+    />
+    <link rel="stylesheet" href="./preview.css" />
+  </head>
+  <body>
+    <div class="sequence-stage">
+      <iframe
+        id="viewer-frame"
+        title="Splat site scroll viewer"
+        src="./assets/scene.html?content=./scene.sog"
+        allow="fullscreen; xr-spatial-tracking"
+      ></iframe>
+
+      <div class="viewer-overlay">
+        <div class="scene-haze" aria-hidden="true"></div>
+        <div class="scene-grain" aria-hidden="true"></div>
+
+        <header class="site-mark" aria-label="Site introduction">
+          <div class="site-mark__brand" id="site-mark-brand">
+            <img class="site-mark__logo" id="site-mark-logo" alt="Disintegrator Films logo" />
+          </div>
+          <p class="site-mark__eyebrow" id="site-mark-eyebrow"></p>
+          <h1 class="site-mark__title" id="site-mark-title"></h1>
+          <p class="site-mark__person" id="site-mark-person"></p>
+          <p class="site-mark__body" id="site-mark-body"></p>
+          <nav class="action-row" id="site-links" aria-label="Explore more work"></nav>
+        </header>
+
+        <section class="info-panel" id="info-panel" aria-live="polite">
+          <p class="info-panel__eyebrow" id="info-eyebrow"></p>
+          <h2 class="info-panel__title" id="info-title"></h2>
+          <p class="info-panel__body" id="info-body"></p>
+        </section>
+
+        <div class="progress-panel">
+          <div class="progress-track">
+            <span id="progress-bar"></span>
+          </div>
+        </div>
+
+        <div class="status-pill" id="status-pill" role="status" aria-live="polite">
+          Waiting for SuperSplat viewer...
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-track" id="scroll-track"></div>
+
+    <template id="scroll-spacer-template">
+      <section class="scroll-spacer"></section>
+    </template>
+
+    <script type="module" src="./preview.js"></script>
+  </body>
+</html>

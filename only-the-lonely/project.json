@@ -1,0 +1,322 @@
+{
+  "version": 1,
+  "slug": "tubby4",
+  "sceneTitle": "Only The Lonely",
+  "viewer": {
+    "html": "./assets/tubby4.html",
+    "content": "./tubby4.sog",
+    "rev": "1776812219"
+  },
+  "site": {
+    "eyebrow": "Chris Bohn / Disintegrator Films",
+    "title": "Only The Lonely",
+    "person": "Photography, 3D design, animation, Gaussian splats, 3D printing, Unreal Engine, After Effects, and Blender.",
+    "body": "Chris Bohn builds atmospheric visual worlds through Disintegrator Films, combining cinematic image-making with real-time spatial storytelling.",
+    "links": [
+      {
+        "label": "Portfolio",
+        "href": "https://www.disintegratorfilms.com/"
+      },
+      {
+        "label": "Experimental",
+        "href": "https://www.disintegratorfilms.com/experimental"
+      },
+      {
+        "label": "Bio",
+        "href": "https://www.disintegratorfilms.com/bio"
+      }
+    ]
+  },
+  "theme": {
+    "stylePreset": "signal",
+    "displayFont": "\"Space Grotesk\", sans-serif",
+    "bodyFont": "Inter, sans-serif",
+    "detailFont": "\"IBM Plex Mono\", monospace",
+    "accent": "#8fd2bb",
+    "accentSoft": "#91a8d8",
+    "panelBackground": "rgba(6, 10, 13, 0.88)"
+  },
+  "calloutStyle": {
+    "fontFamily": "\"Space Grotesk\", sans-serif",
+    "titleColor": "rgba(229, 245, 239, 0.74)",
+    "textColor": "rgba(241, 249, 246, 0.99)",
+    "backingColor": "rgba(5, 10, 13, 0.72)"
+  },
+  "effects": {
+    "sceneDustDensity": 2.46,
+    "sceneHazeDensity": 2.49,
+    "captionDustDensity": 0.28,
+    "captionDustSize": 0.3,
+    "captionHazeDensity": 0.37,
+    "lensSmudge": 0.7,
+    "grain": 1.18,
+    "overlayHaze": 1.54
+  },
+  "audio": {
+    "enabled": true,
+    "src": "./assets/roy-orbison-only-the-lonely-black-white-night-30.mp3",
+    "volume": 0.34
+  },
+  "states": [
+    {
+      "id": "state-1776781189694",
+      "label": "",
+      "eyebrow": "",
+      "title": "",
+      "copy": "Hello Tubby.",
+      "infoTitle": "",
+      "infoBody": "",
+      "showCallout": false,
+      "showInfoPanel": false,
+      "transition": {
+        "easing": "easeInOutCubic",
+        "duration": 1.2
+      },
+      "presentation": {
+        "aimX": 0,
+        "aimY": 0,
+        "dolly": 0,
+        "fovTrim": 0
+      },
+      "captionCamera": {
+        "x": -0.88,
+        "y": 1.22,
+        "depth": 11.72,
+        "scale": 0.6
+      },
+      "view": {
+        "position": [
+          -3.687714,
+          1.674779,
+          -2.282481
+        ],
+        "target": [
+          2.227815,
+          -0.385255,
+          3.527449
+        ],
+        "angles": [
+          -13.952717,
+          -134.484012,
+          0
+        ],
+        "distance": 8.543565,
+        "fov": 71,
+        "rotation": [
+          0.046985,
+          0.91532,
+          0.112004,
+          -0.383976
+        ]
+      }
+    },
+    {
+      "id": "state-1776781222110",
+      "label": "",
+      "eyebrow": "",
+      "title": "",
+      "copy": "",
+      "infoTitle": "",
+      "infoBody": "",
+      "showCallout": false,
+      "showInfoPanel": false,
+      "transition": {
+        "easing": "easeInOutCubic",
+        "duration": 1.2
+      },
+      "presentation": {
+        "aimX": 0,
+        "aimY": 0,
+        "dolly": 0,
+        "fovTrim": 0
+      },
+      "captionCamera": {
+        "x": -0.2,
+        "y": -0.6,
+        "depth": 2,
+        "scale": 0.6
+      },
+      "view": {
+        "position": [
+          2.416078,
+          1.755975,
+          -2.097941
+        ],
+        "target": [
+          -0.788131,
+          0.743229,
+          0.714085
+        ],
+        "angles": [
+          -13.363373,
+          131.270311,
+          0
+        ],
+        "distance": 4.381792,
+        "fov": 71,
+        "rotation": [
+          -0.048001,
+          0.90475,
+          0.105991,
+          0.409744
+        ]
+      }
+    },
+    {
+      "id": "state-1776781245737",
+      "label": "",
+      "eyebrow": "",
+      "title": "",
+      "copy": "",
+      "infoTitle": "",
+      "infoBody": "",
+      "showCallout": false,
+      "showInfoPanel": false,
+      "transition": {
+        "easing": "easeInOutCubic",
+        "duration": 1.2
+      },
+      "presentation": {
+        "aimX": 0,
+        "aimY": 0,
+        "dolly": 0,
+        "fovTrim": 0
+      },
+      "captionCamera": {
+        "x": -1,
+        "y": -0.33,
+        "depth": 3.36,
+        "scale": 0.6
+      },
+      "view": {
+        "position": [
+          -0.234019,
+          5.653749,
+          -0.577611
+        ],
+        "target": [
+          -0.231815,
+          0.62673,
+          0.163512
+        ],
+        "angles": [
+          -81.613374,
+          -179.829662,
+          0
+        ],
+        "distance": 5.081357,
+        "fov": 71,
+        "rotation": [
+          0.000971,
+          0.756918,
+          0.653508,
+          -0.001125
+        ]
+      }
+    },
+    {
+      "id": "state-1776812270301",
+      "label": "",
+      "eyebrow": "",
+      "title": "",
+      "copy": "",
+      "infoTitle": "",
+      "infoBody": "",
+      "showCallout": false,
+      "showInfoPanel": false,
+      "transition": {
+        "easing": "easeInOutCubic",
+        "duration": 1.2
+      },
+      "presentation": {
+        "aimX": 0,
+        "aimY": 0,
+        "dolly": 0,
+        "fovTrim": 0
+      },
+      "captionCamera": {
+        "x": 1.2,
+        "y": 0.2,
+        "depth": 3,
+        "scale": 0.6
+      },
+      "view": {
+        "position": [
+          -2.298343,
+          2.154618,
+          0.875602
+        ],
+        "target": [
+          -0.256947,
+          0.835793,
+          0.890909
+        ],
+        "angles": [
+          -32.863378,
+          -90.429611,
+          0
+        ],
+        "distance": 2.430397,
+        "fov": 71,
+        "rotation": [
+          0.199269,
+          0.680765,
+          0.200769,
+          -0.675679
+        ]
+      }
+    },
+    {
+      "id": "state-1776812298531",
+      "label": "",
+      "eyebrow": "",
+      "title": "",
+      "copy": "",
+      "infoTitle": "",
+      "infoBody": "",
+      "showCallout": false,
+      "showInfoPanel": false,
+      "transition": {
+        "easing": "easeInOutCubic",
+        "duration": 1.2
+      },
+      "presentation": {
+        "aimX": 0,
+        "aimY": 0,
+        "dolly": 0,
+        "fovTrim": 0
+      },
+      "captionCamera": {
+        "x": 1.2,
+        "y": 0.2,
+        "depth": 3,
+        "scale": 0.6
+      },
+      "view": {
+        "position": [
+          -1.257742,
+          1.309303,
+          -0.598518
+        ],
+        "target": [
+          0.111149,
+          0.860064,
+          0.084869
+        ],
+        "angles": [
+          -16.363378,
+          -116.529611,
+          0
+        ],
+        "distance": 1.594584,
+        "fov": 71,
+        "rotation": [
+          0.074856,
+          0.841832,
+          0.121035,
+          -0.52064
+        ]
+      }
+    }
+  ]
+}

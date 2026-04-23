@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>We Remain</title>
+    <meta
+      name="description"
+      content="We Remain, a fullscreen scroll-driven Gaussian splat sequence with poem fragments, atmosphere, and sound."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500&family=Familjen+Grotesk:wght@400;500;600;700&family=Sora:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./scroll-sequence.css" />
+  </head>
+  <body>
+    <div class="sequence-stage">
+      <iframe
+        id="viewer-frame"
+        title="We Remain scroll viewer"
+        src="./assets/meadow.html?content=./meadow.sog"
+        allow="fullscreen; xr-spatial-tracking"
+      ></iframe>
+
+      <div class="viewer-overlay">
+        <div class="scene-haze" aria-hidden="true"></div>
+        <div class="scene-grain" aria-hidden="true"></div>
+
+        <header class="site-mark" aria-label="Site introduction">
+          <p class="site-mark__eyebrow">Chris Bohn / Disintegrator Films</p>
+          <h1 class="site-mark__title">We Remain</h1>
+          <p class="site-mark__person">
+            Photography, 3D design, animation, Gaussian splats, 3D printing, Unreal Engine,
+            After Effects, and Blender.
+          </p>
+          <p class="site-mark__body">
+            Chris Bohn builds atmospheric visual worlds through Disintegrator Films, combining
+            cinematic image-making with real-time spatial storytelling.
+          </p>
+
+          <nav class="action-row" aria-label="Explore more work">
+            <a href="https://www.disintegratorfilms.com/" target="_blank" rel="noreferrer">
+              Portfolio
+            </a>
+            <a
+              href="https://www.disintegratorfilms.com/experimental"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Experimental
+            </a>
+            <a href="https://www.disintegratorfilms.com/bio" target="_blank" rel="noreferrer">
+              Bio
+            </a>
+          </nav>
+        </header>
+
+        <section class="info-panel" id="info-panel" aria-live="polite">
+          <p class="info-panel__eyebrow" id="info-eyebrow">Arrival</p>
+          <h2 class="info-panel__title" id="info-title">Immersive Worldbuilding</h2>
+          <p class="info-panel__body" id="info-body">
+            Chris Bohn builds cinematic visual worlds across photography, 3D design, animation,
+            splats, Unreal Engine, After Effects, Blender, and physical output including 3D
+            printing.
+          </p>
+        </section>
+
+        <div class="progress-panel">
+          <div class="progress-track">
+            <span id="progress-bar"></span>
+          </div>
+        </div>
+
+        <div class="status-pill" id="status-pill" role="status" aria-live="polite">
+          Waiting for SuperSplat viewer...
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-track" id="scroll-track"></div>
+
+    <template id="scroll-spacer-template">
+      <section class="scroll-spacer"></section>
+    </template>
+
+    <script type="module" src="./scroll-sequence.js"></script>
+  </body>
+</html>

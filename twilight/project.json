@@ -1,0 +1,323 @@
+{
+  "version": 1,
+  "slug": "twilightyes",
+  "sceneTitle": "Twilight",
+  "viewer": {
+    "html": "./assets/twilightyes.html",
+    "content": "./twilightyes.sog",
+    "rev": "1776812029"
+  },
+  "site": {
+    "eyebrow": "Chris Bohn / Disintegrator Films",
+    "title": "Twilight",
+    "person": "Photography, 3D design, animation, Gaussian splats, 3D printing, Unreal Engine, After Effects, and Blender.",
+    "body": "Chris Bohn builds atmospheric visual worlds through Disintegrator Films, combining cinematic image-making with real-time spatial storytelling.",
+    "links": [
+      {
+        "label": "Portfolio",
+        "href": "https://www.disintegratorfilms.com/"
+      },
+      {
+        "label": "Experimental",
+        "href": "https://www.disintegratorfilms.com/experimental"
+      },
+      {
+        "label": "Bio",
+        "href": "https://www.disintegratorfilms.com/bio"
+      }
+    ],
+    "logoSrc": "./assets/dfilms-logo-web.png"
+  },
+  "theme": {
+    "stylePreset": "ember",
+    "displayFont": "Oswald, sans-serif",
+    "bodyFont": "DM Sans, sans-serif",
+    "detailFont": "\"Space Mono\", monospace",
+    "accent": "#d4824d",
+    "accentSoft": "#d8b97d",
+    "panelBackground": "rgba(15, 11, 10, 0.9)"
+  },
+  "calloutStyle": {
+    "fontFamily": "DM Sans, sans-serif",
+    "titleColor": "rgba(255, 230, 205, 0.78)",
+    "textColor": "rgba(255, 237, 221, 0.99)",
+    "backingColor": "rgba(15, 11, 10, 0.72)"
+  },
+  "effects": {
+    "sceneDustDensity": 3,
+    "sceneHazeDensity": 3,
+    "captionDustDensity": 0.48,
+    "captionDustSize": 1.1,
+    "captionHazeDensity": 0,
+    "lensSmudge": 2.99,
+    "grain": 0.42,
+    "overlayHaze": 2.21
+  },
+  "audio": {
+    "enabled": true,
+    "src": "./assets/the-platters-twilight-time-lyrics.mp3",
+    "volume": 0.18
+  },
+  "states": [
+    {
+      "id": "state-1776731396439",
+      "label": "",
+      "eyebrow": "",
+      "title": "",
+      "copy": "",
+      "infoTitle": "",
+      "infoBody": "",
+      "transition": {
+        "easing": "easeInOutCubic",
+        "duration": 1.2
+      },
+      "presentation": {
+        "aimX": 0.35,
+        "aimY": 0,
+        "dolly": 0,
+        "fovTrim": 0
+      },
+      "captionCamera": {
+        "x": -2.2,
+        "y": 1.22,
+        "depth": 0.2,
+        "scale": 1.04
+      },
+      "view": {
+        "position": [
+          5.261468,
+          6.200272,
+          -11.407531
+        ],
+        "target": [
+          0.465456,
+          1.412108,
+          -0.38964
+        ],
+        "angles": [
+          -21.725629,
+          156.476839,
+          0
+        ],
+        "distance": 12.935307,
+        "fov": 50,
+        "rotation": [
+          -0.038415,
+          0.961462,
+          0.184501,
+          0.200187
+        ]
+      },
+      "showCallout": false,
+      "showInfoPanel": false
+    },
+    {
+      "id": "state-1776731636957",
+      "label": "",
+      "eyebrow": "",
+      "title": "",
+      "copy": "",
+      "infoTitle": "",
+      "infoBody": "",
+      "transition": {
+        "easing": "easeInOutCubic",
+        "duration": 1.2
+      },
+      "presentation": {
+        "aimX": 0,
+        "aimY": 0,
+        "dolly": 0,
+        "fovTrim": 0
+      },
+      "captionCamera": {
+        "x": 0.18,
+        "y": -2.2,
+        "depth": 6.52,
+        "scale": 1.65
+      },
+      "view": {
+        "position": [
+          -4.658766,
+          4.198767,
+          -4.045862
+        ],
+        "target": [
+          0.223376,
+          1.372538,
+          -0.117269
+        ],
+        "angles": [
+          -24.275629,
+          231.176839,
+          0
+        ],
+        "distance": 6.874353,
+        "fov": 50,
+        "rotation": [
+          0.090814,
+          0.881757,
+          0.189641,
+          -0.422248
+        ]
+      },
+      "showCallout": false,
+      "showInfoPanel": false
+    },
+    {
+      "id": "state-1776731654719",
+      "label": "",
+      "eyebrow": "",
+      "title": "",
+      "copy": "",
+      "infoTitle": "",
+      "infoBody": "",
+      "transition": {
+        "easing": "easeInOutCubic",
+        "duration": 1.2
+      },
+      "presentation": {
+        "aimX": -0.26,
+        "aimY": 0.14,
+        "dolly": 0.04,
+        "fovTrim": 1.8
+      },
+      "captionCamera": {
+        "x": -0.32,
+        "y": -0.38,
+        "depth": 3,
+        "scale": 0.6
+      },
+      "view": {
+        "position": [
+          0.058634,
+          3.549154,
+          -2.379615
+        ],
+        "target": [
+          0.792271,
+          1.454394,
+          0.0462
+        ],
+        "angles": [
+          -39.575629,
+          196.826839,
+          0
+        ],
+        "distance": 3.287981,
+        "fov": 50,
+        "rotation": [
+          0.049533,
+          0.930826,
+          0.334894,
+          -0.137675
+        ]
+      },
+      "showCallout": false,
+      "showInfoPanel": false
+    },
+    {
+      "id": "state-1776731678409",
+      "label": "",
+      "eyebrow": "",
+      "title": "",
+      "copy": "",
+      "infoTitle": "",
+      "infoBody": "",
+      "transition": {
+        "easing": "easeInOutCubic",
+        "duration": 1.2
+      },
+      "presentation": {
+        "aimX": 0,
+        "aimY": 0,
+        "dolly": 0,
+        "fovTrim": 0
+      },
+      "captionCamera": {
+        "x": 1.2,
+        "y": 0.2,
+        "depth": 3,
+        "scale": 0.6
+      },
+      "view": {
+        "position": [
+          3.018039,
+          1.29944,
+          -5.334408
+        ],
+        "target": [
+          0.792271,
+          1.454394,
+          0.0462
+        ],
+        "angles": [
+          1.524371,
+          157.526839,
+          0
+        ],
+        "distance": 5.82486,
+        "fov": 50,
+        "rotation": [
+          0.002592,
+          0.980744,
+          -0.013047,
+          0.194843
+        ]
+      },
+      "showCallout": false,
+      "showInfoPanel": false
+    },
+    {
+      "id": "state-1776731695723",
+      "label": "Callout 05",
+      "eyebrow": "Beat 5",
+      "title": "Callout 5",
+      "copy": "Write the in-scene callout text here.",
+      "infoTitle": "Panel 5",
+      "infoBody": "Write the lower-left support copy here.",
+      "transition": {
+        "easing": "easeInOutCubic",
+        "duration": 1.2
+      },
+      "presentation": {
+        "aimX": 0,
+        "aimY": 0,
+        "dolly": 0,
+        "fovTrim": 0
+      },
+      "captionCamera": {
+        "x": 1.2,
+        "y": 0.2,
+        "depth": 3,
+        "scale": 0.6
+      },
+      "view": {
+        "position": [
+          -9.989915,
+          15.398283,
+          -8.97356
+        ],
+        "target": [
+          -0.317353,
+          1.40703,
+          1.050777
+        ],
+        "angles": [
+          -45.125629,
+          223.976839,
+          0
+        ],
+        "distance": 19.743378,
+        "fov": 50,
+        "rotation": [
+          0.143663,
+          0.856287,
+          0.355786,
+          -0.345761
+        ]
+      },
+      "showCallout": false,
+      "showInfoPanel": false
+    }
+  ]
+}
