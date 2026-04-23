@@ -4,6 +4,13 @@ const DEFAULT_PRESENTATION = {
   dolly: 0,
   fovTrim: 0,
 };
+const DEFAULT_CAPTION_CAMERA = {
+  x: 1.2,
+  y: 0.2,
+  depth: 3,
+  scale: 0.6,
+};
+const MOBILE_BREAKPOINT = 640;
 const WHEEL_THRESHOLD = 70;
 const SWIPE_THRESHOLD = 42;
 const TRANSITION_SLOWDOWN = 2.3;
@@ -24,6 +31,7 @@ const infoPanel = document.querySelector("#info-panel");
 const infoEyebrow = document.querySelector("#info-eyebrow");
 const infoTitle = document.querySelector("#info-title");
 const infoBody = document.querySelector("#info-body");
+const mobileInfoToggle = document.querySelector("#mobile-info-toggle");
 
 const project = normalizeProject(await loadProjectData());
 const audioManager = createCrossfadeAudioLoop(
@@ -41,8 +49,10 @@ let currentBaseView = null;
 let transitionState = null;
 let wheelIntent = 0;
 let touchStartY = null;
+let mobileInfoOpen = false;
 
 applyProjectChrome();
+document.body.classList.toggle("is-mobile-preview", isMobileViewport());
 window.addEventListener("message", handleBridgeMessage);
 configureViewerSource();
 renderSpacers();
@@ -198,10 +208,23 @@ function bindNavigation() {
   window.addEventListener("touchstart", handleTouchStart, { passive: true });
   window.addEventListener("touchend", handleTouchEnd, { passive: false });
   window.addEventListener("pointerdown", unlockAudio, { passive: true });
+  mobileInfoToggle.addEventListener("click", () => {
+    mobileInfoOpen = !mobileInfoOpen;
+    document.body.classList.toggle("mobile-info-open", mobileInfoOpen);
+  });
 }
 
 function handleResize() {
   sections = Array.from(document.querySelectorAll(".scroll-spacer"));
+  document.body.classList.toggle("is-mobile-preview", isMobileViewport());
+  if (!isMobileViewport()) {
+    mobileInfoOpen = false;
+    document.body.classList.remove("mobile-info-open");
+  }
+  if (currentBaseView) {
+    currentBaseView = getPresentedView(states[settledIndex]);
+  }
+  updateUi(settledIndex, getOverallProgress());
   syncSectionPosition(settledIndex, "auto");
 }
 
@@ -421,11 +444,18 @@ function updateUi(activeStateIndex, overallProgress) {
   const state = states[activeStateIndex] ?? states[0];
   if (state) {
     const showInfoPanel = state.showInfoPanel !== false;
-    infoPanel.style.opacity = showInfoPanel ? "1" : "0";
-    infoPanel.style.transform = showInfoPanel ? "translateY(0)" : "translateY(14px)";
+    const mobile = isMobileViewport();
+    const panelVisible = showInfoPanel && (!mobile || mobileInfoOpen);
+    infoPanel.style.opacity = panelVisible ? "1" : "0";
+    infoPanel.style.transform = panelVisible ? "translateY(0)" : (mobile ? "translateY(calc(100% + 1rem))" : "translateY(14px)");
     infoEyebrow.textContent = showInfoPanel ? (state.eyebrow ?? state.label ?? "") : "";
     infoTitle.textContent = showInfoPanel ? (state.infoTitle ?? state.title ?? state.label ?? "") : "";
     infoBody.textContent = showInfoPanel ? (state.infoBody ?? "") : "";
+    mobileInfoToggle.classList.toggle("is-visible", mobile && showInfoPanel);
+    if (!showInfoPanel) {
+      mobileInfoOpen = false;
+      document.body.classList.remove("mobile-info-open");
+    }
   }
 }
 
@@ -468,7 +498,7 @@ function updateSceneCaption(time) {
   }
   const anchor = getCaptionAnchor(state);
   const presented = getPresentedView(state);
-  const cameraPlacement = state?.captionCamera ?? null;
+  const cameraPlacement = getEffectiveCaptionCamera(state);
   const scale = cameraPlacement
     ? clamp((cameraPlacement.scale ?? 0.56) * (state?.captionScale ?? 1), 0.46, 0.96)
     : clamp(getDistance(presented) * 0.3 * (state?.captionScale ?? 1), 0.24, 0.68);
@@ -495,10 +525,7 @@ function getPresentedView(state) {
     return null;
   }
 
-  const presentation = {
-    ...DEFAULT_PRESENTATION,
-    ...(state.presentation ?? {}),
-  };
+  const presentation = getEffectivePresentation(state);
   const baseView = cloneView(state.view);
   const forward = getForward(baseView);
   const right = safeRight(forward);
@@ -752,7 +779,7 @@ function getCaptionAnchor(state) {
   const forward = getForward(presentedView);
   const right = safeRight(forward);
   const up = normalize(cross(right, forward));
-  const cameraPlacement = state?.captionCamera;
+  const cameraPlacement = getEffectiveCaptionCamera(state);
 
   if (cameraPlacement) {
     return add(
@@ -1042,8 +1069,42 @@ function normalizeProject(payload) {
             ...DEFAULT_PRESENTATION,
             ...(state.presentation ?? {}),
           },
+          mobilePresentation: {
+            ...DEFAULT_PRESENTATION,
+            ...(state.mobilePresentation ?? state.presentation ?? {}),
+          },
+          captionCamera: {
+            ...DEFAULT_CAPTION_CAMERA,
+            ...(state.captionCamera ?? {}),
+          },
+          mobileCaptionCamera: {
+            ...DEFAULT_CAPTION_CAMERA,
+            ...(state.mobileCaptionCamera ?? state.captionCamera ?? {}),
+          },
           ...state,
         }))
       : [],
   };
+}
+
+function getEffectivePresentation(state) {
+  return {
+    ...DEFAULT_PRESENTATION,
+    ...(isMobileViewport()
+      ? (state?.mobilePresentation ?? state?.presentation)
+      : state?.presentation ?? {}),
+  };
+}
+
+function getEffectiveCaptionCamera(state) {
+  return {
+    ...DEFAULT_CAPTION_CAMERA,
+    ...(isMobileViewport()
+      ? (state?.mobileCaptionCamera ?? state?.captionCamera)
+      : state?.captionCamera ?? {}),
+  };
+}
+
+function isMobileViewport() {
+  return window.innerWidth <= MOBILE_BREAKPOINT;
 }

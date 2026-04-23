@@ -178,6 +178,7 @@ const spacerTemplate = document.querySelector("#scroll-spacer-template");
 const infoEyebrow = document.querySelector("#info-eyebrow");
 const infoTitle = document.querySelector("#info-title");
 const infoBody = document.querySelector("#info-body");
+const mobileInfoToggle = document.querySelector("#mobile-info-toggle");
 const audioManager = createCrossfadeAudioLoop(AUDIO_SRC);
 
 let bridge = null;
@@ -190,6 +191,7 @@ let currentBaseView = null;
 let transitionState = null;
 let wheelIntent = 0;
 let touchStartY = null;
+let mobileInfoOpen = false;
 
 window.addEventListener("message", handleBridgeMessage);
 configureViewerSource();
@@ -309,11 +311,23 @@ function bindNavigation() {
   window.addEventListener("touchstart", handleTouchStart, { passive: true });
   window.addEventListener("touchend", handleTouchEnd, { passive: false });
   window.addEventListener("pointerdown", unlockAudio, { passive: true });
+  mobileInfoToggle?.addEventListener("click", () => {
+    if (!isMobileViewport()) {
+      return;
+    }
+    mobileInfoOpen = !mobileInfoOpen;
+    document.body.classList.toggle("mobile-info-open", mobileInfoOpen);
+  });
 }
 
 function handleResize() {
   sections = Array.from(document.querySelectorAll(".scroll-spacer"));
+  if (!isMobileViewport()) {
+    mobileInfoOpen = false;
+    document.body.classList.remove("mobile-info-open");
+  }
   syncSectionPosition(settledIndex, "auto");
+  updateUi(activeIndex, getOverallProgress());
 }
 
 function handleWheel(event) {
@@ -535,6 +549,7 @@ function updateUi(activeStateIndex, overallProgress) {
     infoTitle.textContent = state.infoTitle ?? state.title ?? state.label ?? "";
     infoBody.textContent = state.infoBody ?? "";
   }
+  mobileInfoToggle?.classList.toggle("is-visible", isMobileViewport());
 }
 
 function unlockAudio() {
@@ -761,6 +776,10 @@ function clamp(value, min, max) {
 function setStatus(state, message) {
   statusPill.dataset.state = state;
   statusPill.textContent = message;
+}
+
+function isMobileViewport() {
+  return window.innerWidth <= 640;
 }
 
 function subtract(a, b) {

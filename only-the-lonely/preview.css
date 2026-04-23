@@ -57,6 +57,7 @@ body {
 .scene-grain,
 .site-mark,
 .info-panel,
+.mobile-info-toggle,
 .action-row,
 .progress-panel,
 .status-pill {
@@ -180,6 +181,32 @@ body {
     0 18px 48px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
   transition: opacity 540ms ease, transform 540ms ease;
+}
+
+.mobile-info-toggle {
+  position: absolute;
+  right: 0.9rem;
+  bottom: 5rem;
+  display: none;
+  min-height: 2.1rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(235, 227, 215, 0.1);
+  border-radius: 999px;
+  background: rgba(8, 14, 20, 0.72);
+  color: rgba(247, 241, 226, 0.9);
+  font-family: var(--font-detail);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-info-toggle.is-visible {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
 }
 
 .info-panel__title {
@@ -346,24 +373,57 @@ body {
   .site-mark {
     top: 0.8rem;
     left: 0.8rem;
-    width: calc(100vw - 1.6rem);
-    padding: 0.9rem 0.95rem 0.95rem;
+    width: min(17.5rem, calc(100vw - 1.6rem));
+    padding: 0.82rem 0.9rem 0.88rem;
   }
 
   .site-mark__logo {
-    width: min(13.5rem, 100%);
-    max-height: 3.8rem;
+    width: min(11.5rem, 100%);
+    max-height: 3.2rem;
+  }
+
+  .site-mark__eyebrow {
+    margin-bottom: 0.18rem;
+  }
+
+  .site-mark__title {
+    font-size: clamp(1.7rem, 7vw, 2.45rem);
+    line-height: 0.95;
+  }
+
+  .site-mark__person,
+  .site-mark__body,
+  .action-row {
+    display: none;
   }
 
   .info-panel {
-    left: 0.8rem;
-    bottom: 4.95rem;
-    width: calc(100vw - 1.6rem);
+    left: 0.65rem;
+    right: 0.65rem;
+    bottom: 4.4rem;
+    width: auto;
+    padding: 0.92rem 0.95rem 1rem;
+    border-radius: 1rem;
+    opacity: 0;
+    transform: translateY(calc(100% + 1rem));
   }
 
-  .action-row a {
-    min-height: 2.45rem;
-    padding: 0.66rem 0.92rem;
+  body.mobile-info-open .info-panel {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .info-panel__title {
+    font-size: clamp(1.25rem, 6vw, 1.7rem);
+  }
+
+  .info-panel__body {
+    font-size: 0.86rem;
+    line-height: 1.52;
+  }
+
+  .mobile-info-toggle {
+    bottom: 4.85rem;
   }
 
   .progress-panel {
@@ -374,6 +434,6 @@ body {
   .status-pill {
     left: 0.85rem;
     right: 0.85rem;
-    bottom: 8rem;
+    bottom: 7.8rem;
   }
 }

@@ -81,7 +81,7 @@
 
       .card {
         display: block;
-        padding: 1.15rem 1.15rem 1.2rem;
+        overflow: hidden;
         border: 1px solid var(--line);
         border-radius: 1.25rem;
         background:
@@ -99,6 +99,132 @@
         background:
           linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 30%),
           linear-gradient(145deg, rgba(12, 17, 22, 0.96), rgba(6, 9, 12, 0.98));
+      }
+
+      .card__preview {
+        position: relative;
+        height: 9rem;
+        border-bottom: 1px solid var(--line);
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 22% 28%, rgba(255, 255, 255, 0.15), transparent 12%),
+          radial-gradient(circle at 78% 70%, rgba(255, 255, 255, 0.08), transparent 15%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 48%);
+      }
+
+      .card__preview::before,
+      .card__preview::after {
+        content: "";
+        position: absolute;
+        inset: auto;
+        border-radius: 999px;
+        filter: blur(24px);
+        opacity: 0.85;
+      }
+
+      .card__preview::before {
+        width: 8rem;
+        height: 8rem;
+        left: -1rem;
+        top: -2rem;
+      }
+
+      .card__preview::after {
+        width: 7rem;
+        height: 7rem;
+        right: -0.8rem;
+        bottom: -2rem;
+      }
+
+      .card__preview-mark {
+        position: absolute;
+        left: 1rem;
+        right: 1rem;
+        bottom: 0.9rem;
+        color: rgba(255, 250, 241, 0.9);
+        font-size: 0.82rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-family: "IBM Plex Mono", monospace;
+      }
+
+      .card__body {
+        padding: 1rem 1.15rem 1.2rem;
+      }
+
+      .card--we-remain .card__preview {
+        background:
+          radial-gradient(circle at 24% 26%, rgba(248, 80, 72, 0.34), transparent 13%),
+          radial-gradient(circle at 72% 36%, rgba(250, 237, 185, 0.2), transparent 19%),
+          linear-gradient(180deg, rgba(119, 146, 56, 0.5), rgba(7, 14, 9, 0.98));
+      }
+
+      .card--we-remain .card__preview::before {
+        background: rgba(222, 63, 68, 0.42);
+      }
+
+      .card--we-remain .card__preview::after {
+        background: rgba(200, 224, 120, 0.28);
+      }
+
+      .card--king .card__preview {
+        background:
+          radial-gradient(circle at 30% 26%, rgba(132, 121, 212, 0.28), transparent 15%),
+          radial-gradient(circle at 72% 64%, rgba(194, 159, 93, 0.18), transparent 18%),
+          linear-gradient(180deg, rgba(24, 31, 20, 0.5), rgba(4, 7, 9, 0.99));
+      }
+
+      .card--king .card__preview::before {
+        background: rgba(102, 88, 188, 0.35);
+      }
+
+      .card--king .card__preview::after {
+        background: rgba(176, 131, 64, 0.25);
+      }
+
+      .card--aging .card__preview {
+        background:
+          radial-gradient(circle at 28% 32%, rgba(218, 149, 93, 0.3), transparent 14%),
+          radial-gradient(circle at 78% 24%, rgba(130, 171, 192, 0.16), transparent 20%),
+          linear-gradient(180deg, rgba(49, 42, 29, 0.5), rgba(7, 8, 10, 0.98));
+      }
+
+      .card--aging .card__preview::before {
+        background: rgba(207, 133, 82, 0.36);
+      }
+
+      .card--aging .card__preview::after {
+        background: rgba(109, 154, 181, 0.22);
+      }
+
+      .card--lonely .card__preview {
+        background:
+          radial-gradient(circle at 22% 24%, rgba(96, 108, 200, 0.28), transparent 13%),
+          radial-gradient(circle at 76% 60%, rgba(225, 129, 171, 0.15), transparent 18%),
+          linear-gradient(180deg, rgba(15, 16, 36, 0.5), rgba(5, 7, 11, 0.99));
+      }
+
+      .card--lonely .card__preview::before {
+        background: rgba(85, 108, 225, 0.35);
+      }
+
+      .card--lonely .card__preview::after {
+        background: rgba(209, 97, 153, 0.23);
+      }
+
+      .card--twilight .card__preview {
+        background:
+          radial-gradient(circle at 28% 34%, rgba(232, 142, 78, 0.3), transparent 14%),
+          radial-gradient(circle at 80% 24%, rgba(246, 210, 148, 0.16), transparent 18%),
+          linear-gradient(180deg, rgba(39, 16, 14, 0.48), rgba(5, 7, 10, 0.99));
+      }
+
+      .card--twilight .card__preview::before {
+        background: rgba(216, 116, 62, 0.38);
+      }
+
+      .card--twilight .card__preview::after {
+        background: rgba(214, 173, 101, 0.24);
       }
 
       .card h2 {
@@ -127,45 +253,69 @@
         <h1>Interactive Spatial Works</h1>
         <p class="intro">
           A single GitHub Pages collection for the exported outputs only. Each piece opens as its
-          own self-contained published package.
+          own self-contained published package, ready to live under the Disintegrator Films world.
         </p>
       </section>
 
       <section class="grid" aria-label="Published scenes">
-        <a class="card" href="./we-remain/">
-          <p class="eyebrow">Scene 01</p>
-          <h2>We Remain</h2>
-          <p>An elegiac meadow piece built around a memorial splat and atmospheric site framing.</p>
+        <a class="card card--we-remain" href="./we-remain/">
+          <div class="card__preview" aria-hidden="true">
+            <div class="card__preview-mark">Scene 01</div>
+          </div>
+          <div class="card__body">
+            <p class="eyebrow">Scene 01</p>
+            <h2>We Remain</h2>
+            <p>An elegiac meadow piece built around a memorial splat and atmospheric site framing.</p>
+          </div>
         </a>
 
-        <a class="card" href="./the-king-is-dead/">
-          <p class="eyebrow">Scene 02</p>
-          <h2>The King is Dead</h2>
-          <p>A darker royal ruin, held between mood, story, and interactive camera choreography.</p>
+        <a class="card card--king" href="./the-king-is-dead/">
+          <div class="card__preview" aria-hidden="true">
+            <div class="card__preview-mark">Scene 02</div>
+          </div>
+          <div class="card__body">
+            <p class="eyebrow">Scene 02</p>
+            <h2>The King is Dead</h2>
+            <p>A darker royal ruin, held between mood, story, and interactive camera choreography.</p>
+          </div>
         </a>
 
-        <a class="card" href="./aging-gracefully/">
-          <p class="eyebrow">Scene 03</p>
-          <h2>Aging Gracefully</h2>
-          <p>A reflective still-life piece shaped around time, wear, memory, and material presence.</p>
+        <a class="card card--aging" href="./aging-gracefully/">
+          <div class="card__preview" aria-hidden="true">
+            <div class="card__preview-mark">Scene 03</div>
+          </div>
+          <div class="card__body">
+            <p class="eyebrow">Scene 03</p>
+            <h2>Aging Gracefully</h2>
+            <p>A reflective still-life piece shaped around time, wear, memory, and material presence.</p>
+          </div>
         </a>
 
-        <a class="card" href="./only-the-lonely/">
-          <p class="eyebrow">Scene 04</p>
-          <h2>Only The Lonely</h2>
-          <p>A spatial music-led piece with authored motion, atmosphere, and in-scene callouts.</p>
+        <a class="card card--lonely" href="./only-the-lonely/">
+          <div class="card__preview" aria-hidden="true">
+            <div class="card__preview-mark">Scene 04</div>
+          </div>
+          <div class="card__body">
+            <p class="eyebrow">Scene 04</p>
+            <h2>Only The Lonely</h2>
+            <p>A spatial music-led piece with authored motion, atmosphere, and in-scene callouts.</p>
+          </div>
         </a>
 
-        <a class="card" href="./twilight/">
-          <p class="eyebrow">Scene 05</p>
-          <h2>Twilight</h2>
-          <p>A branded Disintegrator Films scene with logo, mood, sound, and guided camera beats.</p>
+        <a class="card card--twilight" href="./twilight/">
+          <div class="card__preview" aria-hidden="true">
+            <div class="card__preview-mark">Scene 05</div>
+          </div>
+          <div class="card__body">
+            <p class="eyebrow">Scene 05</p>
+            <h2>Twilight</h2>
+            <p>A branded Disintegrator Films scene with logo, mood, sound, and guided camera beats.</p>
+          </div>
         </a>
       </section>
 
       <p class="footer">
-        Visit my website for more...
-        <code>scenes.disintegratorfilms.com</code>.
+        Published spatial works by Chris Bohn / Disintegrator Films.
       </p>
     </main>
   </body>
