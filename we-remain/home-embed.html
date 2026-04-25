@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>We Remain Home Embed</title>
+    <meta
+      name="description"
+      content="Homepage embed for We Remain by Chris Bohn / Disintegrator Films."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500&family=Familjen+Grotesk:wght@400;500;600;700&family=Sora:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./home-embed.css" />
+  </head>
+  <body>
+    <main class="home-stage">
+      <iframe
+        id="viewer-frame"
+        title="We Remain homepage embed"
+        src="./assets/meadow.html?content=./meadow.sog"
+        allow="fullscreen; xr-spatial-tracking"
+      ></iframe>
+
+      <div class="home-overlay">
+        <div class="scene-haze" aria-hidden="true"></div>
+        <div class="scene-grain" aria-hidden="true"></div>
+
+        <section class="hero-card" aria-label="We Remain introduction">
+          <p class="hero-card__eyebrow">Chris Bohn / Disintegrator Films</p>
+          <h1 class="hero-card__title">We Remain</h1>
+          <p class="hero-card__body">
+            Atmospheric visual worlds built through photography, 3D design, Gaussian splats, and
+            cinematic spatial storytelling.
+          </p>
+          <nav class="hero-card__actions" aria-label="Scene actions">
+            <a href="./scroll-sequence.html" target="_top" rel="noreferrer">Enter Scene</a>
+            <a href="https://www.disintegratorfilms.com/" target="_top" rel="noreferrer">
+              Main Site
+            </a>
+          </nav>
+        </section>
+
+        <div class="status-pill" id="status-pill" role="status" aria-live="polite">
+          Loading We Remain...
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="./home-embed.js"></script>
+  </body>
+</html>
