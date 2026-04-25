@@ -227,6 +227,21 @@
         background: rgba(214, 173, 101, 0.24);
       }
 
+      .card--ritual .card__preview {
+        background:
+          radial-gradient(circle at 26% 24%, rgba(190, 22, 58, 0.34), transparent 14%),
+          radial-gradient(circle at 78% 58%, rgba(228, 148, 84, 0.16), transparent 18%),
+          linear-gradient(180deg, rgba(42, 8, 16, 0.52), rgba(6, 7, 11, 0.99));
+      }
+
+      .card--ritual .card__preview::before {
+        background: rgba(170, 18, 52, 0.4);
+      }
+
+      .card--ritual .card__preview::after {
+        background: rgba(201, 121, 72, 0.24);
+      }
+
       .card h2 {
         margin: 0.1rem 0 0.5rem;
         font-size: 1.7rem;
@@ -310,6 +325,17 @@
             <p class="eyebrow">Scene 05</p>
             <h2>Twilight</h2>
             <p>A branded Disintegrator Films scene with logo, mood, sound, and guided camera beats.</p>
+          </div>
+        </a>
+
+        <a class="card card--ritual" href="./ritual/">
+          <div class="card__preview" aria-hidden="true">
+            <div class="card__preview-mark">Scene 06</div>
+          </div>
+          <div class="card__body">
+            <p class="eyebrow">Scene 06</p>
+            <h2>Ritual</h2>
+            <p>A crimson ceremonial scene shaped around atmosphere, presence, and dark spatial choreography.</p>
           </div>
         </a>
       </section>
